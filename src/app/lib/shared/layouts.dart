@@ -8,6 +8,45 @@ class MainLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Crypto Nerve'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(Icons.search),
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: const [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+              ),
+              child: Text(
+                'Crypto Nerve',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Home'),
+            ),
+            ListTile(
+              title: Text('Search'),
+            ),
+            ListTile(
+              title: Text('Profile'),
+            ),
+          ],
+        ),
+      ),
+      drawerEnableOpenDragGesture: true,
       body: Container(
         color: Theme.of(context).colorScheme.primary,
         child: SafeArea(
